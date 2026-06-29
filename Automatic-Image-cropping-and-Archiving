@@ -1,0 +1,15 @@
+#!/bin/bash
+x=0;
+while true
+  do
+    if (($(ls -1 /home/Local_address/photo | wc -l) >= 108))
+      then
+        for j in $(ls /home/Local_address/photo)
+          do
+            convert /home/Local_address/photo/"$j" -crop 256x256+0+0 /home/Local_address/photo/"$j"
+          done
+            zip -rm /home/Local_address/zipphoto/photo"$x".zip /home/Local_address/photo
+            x=$((x+1))
+            mkdir /home/Local_address/photo
+          fi
+        done
